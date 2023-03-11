@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} Show Categories  {% endblock%}
+
+
+
+{% block 'show' %}
+<div class="card row my-5">
+    <div class="col">     
+   <div class="col-4" > 
+
+  <img src="{{cat.image.url}}" class="card-img-top" alt="...">
+  
+  {% comment %} <span>{{product.image.url}}</span> {% endcomment %}
+  <div class="card-body col-4">
+    <h5 class="card-title">{{cat.name}} </h5>
+ 
+    <p class="card-text">{{cat.describtion}}</p>
+    {% comment %} <a href="{% url 'edit' cat.id %}"><button class="btn btn-danger">edit</button></a> {% endcomment %}
+
+    {% for p in cat.categories.category_posts.all %}
+       {% if p.id != cat.id %}
+          {% comment %} <li> <a class="btn btn-dark" href="{{p.get_show_url}}">{{p}} </a> </li> {% endcomment %}
+       {% endif %}
+    {% endfor %}
+
+
+  </div>
+</div> 
+  </div>
+
+
+</div>
+
+
+{% endblock %}

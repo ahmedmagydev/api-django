@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block 'title' %}All Categories{% endblock %}
+
+
+{% block 'content' %}
+<h1>All Categories</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Describtion</th>
+        <th scope="col">Show</th>
+        <th scope="col">Edit </th>
+        <th scope="col">Delete </th> 
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for cat in categories %}
+      <tr>
+        <th scope="row">{{cat.id}}</th>
+        <td>{{cat.name}}</td>
+        <td>{{cat.describtion}}</td>
+        <td><a href="{% url 'categories.show' cat.id %}" class="btn btn-primary">Show </a></td>
+        <td><a href="" class="btn btn-warning">Edit </a></td>
+        <td><a href="" class="btn btn-danger">Delete </a></td>
+
+
+      </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

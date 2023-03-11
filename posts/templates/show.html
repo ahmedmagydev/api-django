@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} show product  {% endblock%}
+
+
+
+{% block 'show' %}
+<div class="card row my-5">
+    <div class="col">     
+   <div class="col-4" > 
+
+  <img src="{{product.image.url}}" class="card-img-top" alt="...">
+  
+  {% comment %} <span>{{product.image.url}}</span> {% endcomment %}
+  <div class="card-body col-4">
+    <h5 class="card-title">{{product.name}} </h5>
+ 
+    <p class="card-text">{{product.describtion}}</p>
+    <a href="{% url 'edit' product.id %}"><button class="btn btn-danger">edit</button></a>
+
+    {% for p in product.categories.category_posts.all %}
+       {% if p.id != product.id %}
+          <li> <a class="btn btn-dark" href="{{p.get_show_url}}">{{p}} </a> </li>
+       {% endif %}
+    {% endfor %}
+
+
+  </div>
+</div> 
+  </div>
+
+
+</div>
+
+
+{% endblock %}

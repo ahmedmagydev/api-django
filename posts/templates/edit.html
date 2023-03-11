@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% comment %} {% load static %} {% endcomment %}
+{% block title %} Edit post  {% endblock%}
+
+{% block 'content' %}
+    <h1> Add new post</h1>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{lf}}
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
